@@ -25,7 +25,14 @@ body {
     border: 1px outset #1f6357;
 }
 
-.squareNumber {
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
     background-color: #1f6357;
     border-color: #0d4848;
+    width: 200px;
 }

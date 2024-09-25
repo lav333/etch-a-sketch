@@ -1,5 +1,9 @@
-function changeBackgroundColor(element) {
+function changeClassicBackgroundColor(element) {
     element.style.backgroundColor = "darkgreen";
+}
+
+function changeRGBBackgroundColor(element) {
+    element.style.backgroundColor = getRandomRGB();
 }
 
 function changeSquareNumber() {
@@ -17,7 +21,10 @@ function createGrid(x) {
                 const square = document.createElement("div");
                 square.classList.add("square");
                 row.appendChild(square);
-                square.addEventListener("mousemove", () => changeBackgroundColor(square));
+                if (count == 0) {
+                    square.addEventListener("mouseover", () => changeClassicBackgroundColor(square));
+                }
+                else {square.addEventListener("mouseover", () => changeRGBBackgroundColor(square))}
             }
             cont.appendChild(row);
         }
@@ -28,9 +35,27 @@ function createGrid(x) {
     }
 }
 
-const cont = document.querySelector(".cont");
+function getRandomRGB() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
 
-createGrid(16);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+
+const cont = document.querySelector(".cont");
+let count = 0
+createGrid(16)
 
 const squareNumber = document.querySelector(".squareNumber");
 squareNumber.addEventListener("click", () => changeSquareNumber());
+
+const classic = document.querySelector(".classic");
+const rgb = document.querySelector(".rgb");
+classic.addEventListener("click", () => {count = 0
+    createGrid(16)
+})
+rgb.addEventListener("click", () => {count = 1
+    createGrid(16)
+})
