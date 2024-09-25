@@ -1,0 +1,20 @@
+body {
+    background-color: #023c4d;
+}
+
+.cont {
+    display: flex;
+    background-color: #023c4d;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 15%;
+    max-width: 80%;
+}
+
+.square {
+    width: 30px;
+    height: 30px;
+    background-color: #0d4848;
+    border: 1px outset #1f6357;
+}
