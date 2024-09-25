@@ -1,9 +1,15 @@
 function changeClassicBackgroundColor(element) {
     element.style.backgroundColor = "darkgreen";
+    if (Number(window.getComputedStyle(element).opacity)>0) {
+        element.style.opacity = String(Number(window.getComputedStyle(element).opacity)-0.1);
+    }
 }
 
 function changeRGBBackgroundColor(element) {
     element.style.backgroundColor = getRandomRGB();
+    if (Number(window.getComputedStyle(element).opacity)>0) {
+        element.style.opacity = String(Number(window.getComputedStyle(element).opacity)-0.1);
+    }
 }
 
 function changeSquareNumber() {
@@ -13,6 +19,7 @@ function changeSquareNumber() {
 
 function createGrid(x) {
     cont.replaceChildren()
+    let opacity = 1
     if (typeof x == "number" && x>0 && x<101) {
         for (let i=0; i<x; i++) {
             const row = document.createElement("div");
@@ -20,6 +27,7 @@ function createGrid(x) {
             for (let j=0; j<x; j++) {
                 const square = document.createElement("div");
                 square.classList.add("square");
+                square.style.opacity = "1.1";
                 row.appendChild(square);
                 if (count == 0) {
                     square.addEventListener("mouseover", () => changeClassicBackgroundColor(square));
