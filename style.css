@@ -4,17 +4,28 @@ body {
 
 .cont {
     display: flex;
-    background-color: #023c4d;
-    flex-wrap: wrap;
-    justify-content: center;
+    background-color: red;
+    flex-direction: column;
     margin: 0 auto;
-    margin-top: 15%;
-    max-width: 80%;
+    margin-top: 5%;
+    width: 600px;
+    height: auto;
+}
+
+.row {
+    background-color: blue;
+    width: 100%;
+    display: flex;
 }
 
 .square {
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    aspect-ratio: 1/1;
     background-color: #0d4848;
     border: 1px outset #1f6357;
+}
+
+.squareNumber {
+    background-color: #1f6357;
+    border-color: #0d4848;
 }
